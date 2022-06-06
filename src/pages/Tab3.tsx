@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../App';
 import ExploreContainer from '../components/ExploreContainer';
@@ -8,13 +8,14 @@ const AuthButton: React.FC = () => {
   let history = useHistory();
   let auth = useAuth();
 
-  return <button
+  return <IonButton
+    color="danger"
     onClick={() => {
       auth?.signout(() => history.push("/tab1"));
     }}
   >
     Sign out
-  </button>
+  </IonButton>
 }
 
 

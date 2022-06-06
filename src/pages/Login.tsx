@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../App';
 
@@ -37,7 +37,10 @@ const Login: React.FC = () => {
 
         <div>
           <p>You must log in to view the page at {from.pathname}</p>
-          <button onClick={login}>Log in</button>
+          <IonButton
+            onClick={login}
+            color="success"
+          >Log in</IonButton>
         </div>
       </IonContent>
 
