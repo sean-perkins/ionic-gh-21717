@@ -1,23 +1,33 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../App';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab3.css';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../App";
+import ExploreContainer from "../components/ExploreContainer";
+import "./Tab3.css";
 
 const AuthButton: React.FC = () => {
   let history = useHistory();
   let auth = useAuth();
 
-  return <IonButton
-    color="danger"
-    onClick={() => {
-      auth?.signout(() => history.push("/tab1"));
-    }}
-  >
-    Sign out
-  </IonButton>
-}
-
+  return (
+    <IonButton
+      color="danger"
+      onClick={() => {
+        auth?.signout(() => {
+          history.push("/");
+        });
+      }}
+    >
+      Sign out
+    </IonButton>
+  );
+};
 
 const Tab3: React.FC = () => {
   return (

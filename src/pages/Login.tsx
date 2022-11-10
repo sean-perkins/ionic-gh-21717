@@ -1,6 +1,13 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { useAuth } from '../App';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { useHistory, useLocation } from "react-router-dom";
+import { useAuth } from "../App";
 
 interface LocationState {
   from: {
@@ -13,7 +20,7 @@ const Login: React.FC = () => {
   const location = useLocation<LocationState>();
   const auth = useAuth();
 
-  let { from } = location.state || { from: { pathname: "/tab1" } };
+  let { from } = location.state || { from: { pathname: location.pathname } };
 
   const login = () => {
     auth?.signin(() => {
@@ -37,15 +44,13 @@ const Login: React.FC = () => {
 
         <div>
           <p>You must log in to view the page at {from.pathname}</p>
-          <IonButton
-            onClick={login}
-            color="success"
-          >Log in</IonButton>
+          <IonButton onClick={login} color="success">
+            Log in
+          </IonButton>
         </div>
       </IonContent>
-
     </IonPage>
   );
-}
+};
 
-export default Login
+export default Login;
